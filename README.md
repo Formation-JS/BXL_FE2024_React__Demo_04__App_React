@@ -11,3 +11,11 @@ Fonctionnement :
 Cas pratique : 
 - Récuperer des données à la demande (GET).
 - Envoyer des données vers le serveur (POST, PUT, DELETE).
+
+### 2) Composant dédié à une requete (-> useEffect)
+Fonctionnement :
+- Quand le composant est afficher, le requete est envoyé.
+- Adapté les rendu visuel en fonction de l'avancement.
+
+Cas pratique :
+- Composant autonome qui affiche les données (GET)
