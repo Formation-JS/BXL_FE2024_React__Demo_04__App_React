@@ -19,3 +19,7 @@ Fonctionnement :
 
 Cas pratique :
 - Composant autonome qui affiche les données (GET)
+
+### 3) Composant dédié avec le Suspense (-> use)
+Même fonctionnement que exemple 2.  
+Mise en place basé sur l'utilisation de la méthode "use".
