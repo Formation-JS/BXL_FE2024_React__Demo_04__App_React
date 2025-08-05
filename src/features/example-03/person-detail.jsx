@@ -1,9 +1,10 @@
 import { Suspense, use } from "react";
+import { ErrorBoundary } from 'react-error-boundary';
 
 const requetePromise = async (id) => {
     //! Delay
     await (new Promise(resolve => { setTimeout(resolve, 500); }));
-    
+
     //! Request
     const response = await fetch('http://localhost:3000/people/' + id);
 
@@ -23,9 +24,11 @@ export default function PersonDetail({ personId }) {
     return (
         <>
             <h3>Détail du personnage "{personId}"</h3>
-            <Suspense fallback={<p>Chargement en cours...</p>}>
-                <PersonDetailInner ajax={promise} />
-            </Suspense>
+            <ErrorBoundary fallbackRender={({error}) => <p>Erreur: {error.message}</p>}>
+                <Suspense fallback={<p>Chargement en cours...</p>}>
+                    <PersonDetailInner ajax={promise} />
+                </Suspense>
+            </ErrorBoundary>
         </>
     );
 }
